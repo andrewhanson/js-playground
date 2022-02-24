@@ -1,0 +1,7 @@
+{
+  "color": true,
+  "extension": ["ts"],
+  "watch-paths": ["src", "test"],
+  "spec": "test/**/*.ts",
+  "require": "ts-node/register"
+}

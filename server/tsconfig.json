@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2019", "esnext.asynciterable", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "sourceMap": true,
+    "strict": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es6",
+    "outDir": "dist",
+    "resolveJsonModule": true
+  },
+  "exclude": ["scripts", "docs", "dist", "./node_modules"],
+  "typedocOptions": {
+    "entryPoints": ["src"],
+    "out": "docs"
+  },
+  "typeRoots": [
+    "@types",
+    "./node_modules/@types",
+  ]
+}

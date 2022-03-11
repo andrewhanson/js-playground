@@ -1,0 +1,54 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "import"],
+  "env": {
+      "es6": true,
+      "node": true,
+      "mocha": true
+  },
+  "ignorePatterns": ["*.d.ts"],
+  "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+  },
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "varsIgnorePattern": "^_", "args": "none" }
+    ],
+    "no-duplicate-imports": "error",
+    "object-shorthand": ["error"],
+    "newline-before-return": ["error"],
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["sibling", "parent"],
+          "index",
+          "object"
+        ],
+        "pathGroups": [
+          { "pattern": "@sentry/**", "group": "internal" },
+          { "pattern": "@prisma/**", "group": "internal" },
+          { "pattern": "generated/**", "group": "internal" }
+        ],
+        "alphabetize": { "order": "asc" },
+        "pathGroupsExcludedImportTypes": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "description": "Virtual clock service for javascript applications",
+  "author": "Andrew Hanson",
+  "license": "MIT",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.js.map"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "mocha --config .mocharc.json --require ./test/startup.fixture.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewhanson/js-playground/modules/clock"
+  },
+  "keywords": [
+    "clock",
+    "datetime"
+  ],
+  "devDependencies": {
+    "@types/chai": "^4.3.0",
+    "@types/luxon": "^2.3.0",
+    "@types/mocha": "^9.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.10.0",
+    "eslint-plugin-import": "^2.25.4",
+    "mocha": "^9.2.1",
+    "ts-mocha": "^9.0.2",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "luxon": "^2.3.1"
+  }
+}

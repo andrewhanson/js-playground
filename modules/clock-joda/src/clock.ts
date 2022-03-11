@@ -11,6 +11,9 @@ export class Clock {
   timeZone: ZoneId
   currentInstant?: Instant
 
+  private isInstant(instant:any){
+    return instant.toEpochMilli ? true : false
+  }
   /**
    * Sets the current time of the clock or no value to use the current UTC time.
    * 
@@ -22,7 +25,7 @@ export class Clock {
     if(!instant){
       return
     }
-    else if(instant instanceof Instant){
+    else if(instant instanceof Instant || this.isInstant(instant)){
       this.currentInstant = instant as Instant
     }
     else if(typeof instant === 'number'){
@@ -51,8 +54,8 @@ export class Clock {
    * @param tz Desired timezone
    * @returns Curent time in the timezone
    */
-  localInZone(tz: string):ZonedDateTime{
-    return this.now().atZone(ZoneId.of(tz))
+  localInZone(tz: ZoneId|string):ZonedDateTime{
+    return this.now().atZone( tz instanceof ZoneId ? tz : ZoneId.of(tz) )
   }
 
   /**

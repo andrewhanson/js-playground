@@ -24,7 +24,8 @@
     "out": "docs"
   },
   "typeRoots": [
+    "./types",
     "@types",
-    "./node_modules/@types",
+    "./node_modules/@types" 
   ]
 }

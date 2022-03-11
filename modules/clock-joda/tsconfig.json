@@ -5,8 +5,11 @@
     "lib": ["es2020"],
     "strict": true, 
     "declaration": true,
-    "outDir": "./dist"
+    "outDir": "./lib"
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
       "tests",
       "dist",

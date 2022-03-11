@@ -6,7 +6,7 @@ import profileRoutes from './profile'
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  const {clock, facilityId } = req.appContext
+  const {clock, facilityId } = req.context
 
   res.send(`Hello World from routers folder.  It is ${clock.now()} and ${clock.localInZone(clock.timeZone)} in ${clock.timeZone} at ${facilityId}`)
 })

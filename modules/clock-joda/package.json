@@ -1,5 +1,5 @@
 {
-  "name": "clock",
+  "name": "clock-joda",
   "version": "1.0.0",
   "description": "Virtual clock service for javascript applications using js-joda",
   "author": "Andrew Hanson",
@@ -8,8 +8,8 @@
     "dist/**/*.js",
     "dist/**/*.js.map"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "lint": "eslint \"src/**/*.ts\"",

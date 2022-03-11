@@ -8,6 +8,9 @@ class Clock {
         this.timeZone = timeZone ? core_1.ZoneId.of(timeZone) : core_1.ZonedDateTime.now().zone();
         this.setInstant(instant);
     }
+    isInstant(instant) {
+        return instant.toEpochMilli ? true : false;
+    }
     /**
      * Sets the current time of the clock or no value to use the current UTC time.
      *
@@ -19,7 +22,7 @@ class Clock {
         if (!instant) {
             return;
         }
-        else if (instant instanceof core_1.Instant) {
+        else if (instant instanceof core_1.Instant || this.isInstant(instant)) {
             this.currentInstant = instant;
         }
         else if (typeof instant === 'number') {
@@ -47,7 +50,7 @@ class Clock {
      * @returns Curent time in the timezone
      */
     localInZone(tz) {
-        return this.now().atZone(core_1.ZoneId.of(tz));
+        return this.now().atZone(tz instanceof core_1.ZoneId ? tz : core_1.ZoneId.of(tz));
     }
     /**
      * Get the current instant (UTC)

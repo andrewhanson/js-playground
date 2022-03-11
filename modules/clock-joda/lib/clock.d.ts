@@ -4,6 +4,7 @@ export declare class Clock {
     constructor(timeZone?: string, instant?: Instant | string | Date | number);
     timeZone: ZoneId;
     currentInstant?: Instant;
+    private isInstant;
     /**
      * Sets the current time of the clock or no value to use the current UTC time.
      *
@@ -24,7 +25,7 @@ export declare class Clock {
      * @param tz Desired timezone
      * @returns Curent time in the timezone
      */
-    localInZone(tz: string): ZonedDateTime;
+    localInZone(tz: ZoneId | string): ZonedDateTime;
     /**
      * Get the current instant (UTC)
      * @returns Current time in UTC

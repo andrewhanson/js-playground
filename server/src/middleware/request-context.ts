@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { LuxonClock } from '../services/datetime/clock'
+import { Clock } from '../services/datetime/clock'
 
 export default async(req: Request, res:Response, next: NextFunction) => {
 
@@ -11,7 +11,7 @@ export default async(req: Request, res:Response, next: NextFunction) => {
     offsetHours = parseInt(offsetHours)
   }
 
-  const clock = new LuxonClock(tz, offsetHours)
+  const clock = new Clock(tz, offsetHours)
 
     const context = {
       facilityId,

@@ -5,7 +5,6 @@ import requestContext from './middleware/request-context'
 const app = express();
 const port = 3000;
 
-
 app.use(requestContext)
 app.use(routes)
 

@@ -121,7 +121,6 @@ describe('DateTime time slots', function(){
         }
 
         assert.equal(slots.length, s.numberOfSlots)
-        console.log('slots', slots)
 
       })
     })

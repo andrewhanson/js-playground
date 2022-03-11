@@ -1,6 +1,6 @@
 import assert from 'assert'
 import { DateTime } from 'luxon'
-import { addDays, addMinutes } from 'date-fns'
+import { addDays, addMinutes, daysToWeeks } from 'date-fns'
 import { utcToZonedTime, zonedTimeToUtc } from 'date-fns-tz'
 
 import { ChronoField, Instant, LocalDateTime, ZonedDateTime, ZoneId } from '@js-joda/core'
@@ -14,13 +14,17 @@ describe ( 'DateTime Manipulation', function(){
 
   describe('addMinutes', function(){
     describe('DST Boundary - Start', function(){
-      it('date-fns', function(){
-        const dayStart  =  new Date('2022-03-13')
+      /**
+       * date-fns creates new JS Date objects with differ
+       */
+      xit('date-fns', function(){
+        const dayStart  =  new Date('2022-03-13T00:00:00.000-05:00')
         
-        const startInUtc = zonedTimeToUtc(new Date(dayStart), tz);
+        const startInUtc = zonedTimeToUtc(dayStart, tz);
         const endInUtc = addMinutes(startInUtc, DAY_IN_MINUTES )
         const endInTz = utcToZonedTime(endInUtc, tz)
 
+        assert.equal(startInUtc.getHours(), 0, `${startInUtc} startInUtc : ${dayStart} dayStart`)
         assert.equal(endInTz.getHours(), 11)
         assert.equal(endInTz.getMinutes(), 59)
       })
